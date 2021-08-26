@@ -1,0 +1,22 @@
+2021-08-26 12:22:22 INFO c.e.h.p.SentenceParser [main] Starting parsing sentences by words
+2021-08-26 12:22:22 INFO c.e.h.p.SentenceParser [main] New created List of Words - [Word{value='few'}, Word{value='few'}]
+2021-08-26 12:22:22 INFO c.e.h.p.SentenceParser [main] Starting parsing sentences by words
+2021-08-26 12:22:22 INFO c.e.h.p.SentenceParser [main] New created List of Words - [Word{value='11'}]
+2021-08-26 12:22:22 INFO c.e.h.p.SentenceParser [main] Starting parsing sentences by words
+2021-08-26 12:22:22 INFO c.e.h.p.SentenceParser [main] New created List of Words - [Word{value='123213fregre'}, Word{value='re'}]
+2021-08-26 12:22:22 INFO c.e.h.p.TextParser [main] Parsing is finished
+2021-08-26 12:22:22 INFO c.e.h.Main [main] Text is parsed: Text{value='My name is Artem.Arte .few /few.11.123213fregre re.'
+, sentenceList=[LeafSentence{value='My name is Artem.', wordList=[Word{value='My'}, Word{value='name'}, Word{value='is'}, Word{value='Artem'}]}, LeafSentence{value='Arte .', wordList=[Word{value='Arte'}]}, LeafSentence{value='few /few.', wordList=[Word{value='few'}, Word{value='few'}]}, LeafSentence{value='11.', wordList=[Word{value='11'}]}, LeafSentence{value='123213fregre re.', wordList=[Word{value='123213fregre'}, Word{value='re'}]}]}
+2021-08-26 12:22:22 INFO c.e.h.Main [main] Recovered text: My name is Artem.Arte .few /few.11.123213fregre re.
+2021-08-26 12:22:22 INFO c.e.h.Main [main] Tasks: 
+2021-08-26 12:22:22 INFO c.e.h.l.TextEditor [main] Sentences in ascending order of words
+2021-08-26 12:22:22 INFO c.e.h.l.TextEditor [main] LeafSentence{value='Arte .', wordList=[Word{value='Arte'}]}
+2021-08-26 12:22:22 INFO c.e.h.l.TextEditor [main] LeafSentence{value='11.', wordList=[Word{value='11'}]}
+2021-08-26 12:22:22 INFO c.e.h.l.TextEditor [main] LeafSentence{value='few /few.', wordList=[Word{value='few'}, Word{value='few'}]}
+2021-08-26 12:22:22 INFO c.e.h.l.TextEditor [main] LeafSentence{value='123213fregre re.', wordList=[Word{value='123213fregre'}, Word{value='re'}]}
+2021-08-26 12:22:22 INFO c.e.h.l.TextEditor [main] LeafSentence{value='My name is Artem.', wordList=[Word{value='My'}, Word{value='name'}, Word{value='is'}, Word{value='Artem'}]}
+2021-08-26 12:22:22 INFO c.e.h.l.TextEditor [main] Sentences with swap words - :
+
+2021-08-26 12:22:22 INFO c.e.h.l.TextEditor [main] [LeafSentence{value='My name is Artem.', wordList=[Word{value='Artem'}, Word{value='name'}, Word{value='is'}, Word{value='My'}]}, LeafSentence{value='Arte .', wordList=[Word{value='Arte'}]}, LeafSentence{value='few /few.', wordList=[Word{value='few'}, Word{value='few'}]}, LeafSentence{value='11.', wordList=[Word{value='11'}]}, LeafSentence{value='123213fregre re.', wordList=[Word{value='re'}, Word{value='123213fregre'}]}]
+2021-08-26 12:22:22 INFO c.e.h.l.TextEditor [main] Modified Substring Sentence: 
+LeafSentence{value='null', wordList=[Word{value='fwqfew'}, Word{value='fwqfew'}, Word{value='kak'}]}
