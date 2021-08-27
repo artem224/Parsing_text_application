@@ -4,6 +4,7 @@ import com.epam.hadler.entity.Component;
 import com.epam.hadler.entity.LeafSentence;
 import com.epam.hadler.entity.Text;
 import com.epam.hadler.entity.Word;
+import com.epam.hadler.exceptions.TextReaderException;
 import com.epam.hadler.logic.TextEditor;
 import com.epam.hadler.parser.TextParser;
 import com.epam.hadler.reader.FileTextReader;
@@ -19,7 +20,7 @@ public class Main {
     private static final String MESSAGE_TEXT_IS_PARSED = "Text is parsed: ";
     private static final String MESSAGE_RECOVERED_TEXT = "Recovered text: ";
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws TextReaderException {
 
         FileTextReader fileTextReader = new FileTextReader(PATH);
         TextParser textParser = new TextParser();
