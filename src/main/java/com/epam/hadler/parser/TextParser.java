@@ -1,8 +1,10 @@
 package com.epam.hadler.parser;
 
 import com.epam.hadler.entity.Component;
-import com.epam.hadler.entity.LeafSentence;
+import com.epam.hadler.entity.Paragraph;
 import com.epam.hadler.entity.Text;
+import com.epam.hadler.exceptions.TextReaderException;
+import com.epam.hadler.reader.FileTextReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,33 +14,32 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TextParser {
-
+    private static final String PARAGRAPH_SPLITERATOR = "[^\\n]+\\n?";
     private static final Logger logger = LogManager.getLogger(TextParser.class);
-    private static final String SENTENCE_SPLITERATOR = "(\\s*[^.!?]*[.!?])";
-    private static final Pattern REGEX_SENTENCE = Pattern.compile(SENTENCE_SPLITERATOR);
+    private static final Pattern REGEX_PARAGRAPH = Pattern.compile(PARAGRAPH_SPLITERATOR);
     private final String MESSAGE_START_PARSING = "Starting parsing text by sentences";
     private final String MESSAGE_PARSING_FINISH = "Parsing is finished";
     private final List<Component> elements = new LinkedList<>();
+    private Parser textParser = new Parser();
     private final Text parsedText = new Text();
-    private final SentenceParser sentenceParser = new SentenceParser();
 
     public Text parse(String text) {
         StringBuilder sb = new StringBuilder();
         String str = "";
-        int end = 0;
-        Matcher matcher = REGEX_SENTENCE.matcher(text);
+        Matcher matcher = REGEX_PARAGRAPH.matcher(text);
         logger.info(MESSAGE_START_PARSING);
-        while (matcher.find()){
-            end = matcher.end();
-            str = matcher.group(0).trim();
+        while (matcher.find()) {
+            str = matcher.group().trim();
             sb.append(str);
-            elements.add(new LeafSentence(str).setWordList(sentenceParser.parse(str)));
-            parsedText.setSentenceList(elements);
+            Paragraph paragraph = new Paragraph(str);
+            paragraph.setSentencesList(textParser.parse(str));
+            elements.add(paragraph);
+
+            parsedText.setParagraphList(elements);
         }
         parsedText.setValue(sb.toString());
-        parsedText.printComponent();
         logger.info(MESSAGE_PARSING_FINISH);
+        logger.info("FINAL - " + elements.toString());
         return parsedText;
     }
-
 }
