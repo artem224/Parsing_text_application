@@ -3,8 +3,6 @@ package com.epam.hadler.parser;
 import com.epam.hadler.entity.Component;
 import com.epam.hadler.entity.Paragraph;
 import com.epam.hadler.entity.Text;
-import com.epam.hadler.exceptions.TextReaderException;
-import com.epam.hadler.reader.FileTextReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,7 +18,7 @@ public class TextParser {
     private final String MESSAGE_START_PARSING = "Starting parsing text by sentences";
     private final String MESSAGE_PARSING_FINISH = "Parsing is finished";
     private final List<Component> elements = new LinkedList<>();
-    private Parser textParser = new Parser();
+    private ParagraphParser paragraphParser = new ParagraphParser();
     private final Text parsedText = new Text();
 
     public Text parse(String text) {
@@ -32,7 +30,7 @@ public class TextParser {
             str = matcher.group().trim();
             sb.append(str);
             Paragraph paragraph = new Paragraph(str);
-            paragraph.setSentencesList(textParser.parse(str));
+            paragraph.setSentencesList(paragraphParser.parse(str));
             elements.add(paragraph);
 
             parsedText.setParagraphList(elements);
