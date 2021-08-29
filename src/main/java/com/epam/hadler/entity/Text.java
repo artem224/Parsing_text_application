@@ -6,7 +6,7 @@ import java.util.Objects;
 public  class Text implements Component {
 
     private String value;
-    private List<Component> sentenceList;
+    private List<Component> paragraphList;
 
     public Text() {
     }
@@ -23,39 +23,39 @@ public  class Text implements Component {
         this.value = value;
     }
 
-    public void setSentenceList(List<Component> sentenceList) {
-        this.sentenceList = sentenceList;
+    public void setParagraphList(List<Component> paragraphList) {
+        this.paragraphList = paragraphList;
     }
 
-    public List<Component> getSentenceList() {
-        return sentenceList;
+    public List<Component> getParagraphList() {
+        return paragraphList;
     }
 
     @Override
     public void printComponent() {
-        sentenceList.forEach(Component::printComponent);
+        paragraphList.forEach(Component::printComponent);
     }
 
     @Override
     public int getSize() {
-        return sentenceList.size();
+        return paragraphList.size();
     }
 
     @Override
     public Component getComponent(int i) {
-        return sentenceList.get(i);
+        return paragraphList.get(i);
     }
 
     @Override
     public List<Component> getComponents() {
-        return sentenceList;
+        return paragraphList;
     }
 
     @Override
     public String toString() {
         return "Text{" +
                 "value='" + value + '\'' + "\n" +
-                ", sentenceList=" + sentenceList +
+                ", sentenceList=" + paragraphList +
                 '}';
     }
 
@@ -64,12 +64,12 @@ public  class Text implements Component {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Text text = (Text) o;
-        return Objects.equals(value, text.value) && Objects.equals(sentenceList, text.sentenceList);
+        return Objects.equals(value, text.value) && Objects.equals(paragraphList, text.paragraphList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value, sentenceList);
+        return Objects.hash(value, paragraphList);
     }
 
 }

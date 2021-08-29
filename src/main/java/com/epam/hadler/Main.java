@@ -29,7 +29,6 @@ public class Main {
         logger.info(MESSAGE_TEXT_IS_PARSED + parsedText);
         parsedText.printComponent();
 
-
         TextEditor textEditor = new TextEditor();
         textEditor.loadText(parsedText);
         logger.info( MESSAGE_RECOVERED_TEXT + textEditor.recoverText() );

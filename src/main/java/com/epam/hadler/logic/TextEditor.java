@@ -17,7 +17,6 @@ public class TextEditor {
     private Text text = new Text();
     private Component sentence = new LeafSentence();
     private List<Component> elements = new ArrayList<>();
-    private final List<Word> wordList = new LinkedList<>();
     private List<Component> sentences = new ArrayList<>();
 
     public TextEditor() {
@@ -29,8 +28,13 @@ public class TextEditor {
     }
 
     private void loadElements() {
-        elements.addAll(text.getSentenceList());
-        sentences.addAll(text.getSentenceList());
+        List<Component> sentenceList = new ArrayList<>();
+        for (Component component : text.getParagraphList()){
+             sentenceList.addAll(component.getComponents());
+
+        }
+        elements.addAll(sentenceList);
+        sentences.addAll(sentenceList);
     }
 
     // variant 2

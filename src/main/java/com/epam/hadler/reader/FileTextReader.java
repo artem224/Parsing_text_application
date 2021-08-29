@@ -31,6 +31,9 @@ public class FileTextReader {
             br = new BufferedReader(fileReader);
             String line = "";
             while ((line = br.readLine()) != null){
+                if (line.equals("")){
+                    sb.append("\r\n");
+                }
                 sb.append(line);
             }
         } catch (IOException  e) {

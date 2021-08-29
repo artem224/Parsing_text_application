@@ -73,7 +73,7 @@ public class LeafSentence implements Component {
         return "LeafSentence{" +
                 "value='" + value + '\'' +
                 ", wordList=" + wordList.toString() +
-                '}';
+                '}' + "\n";
     }
 
     @Override
